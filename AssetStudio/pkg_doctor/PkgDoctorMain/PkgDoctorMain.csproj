@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>COPY $(SolutionDir)\..\pkg.py $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="System" />

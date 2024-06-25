@@ -7,7 +7,8 @@ set OUTPUT=pkg-doctor-net472-%fname%
 rmdir /S /Q %OUTPUT%
 mkdir %OUTPUT%
 set SRC=pkg_doctor\PkgDoctorMain\bin\Release
-
+copy pkg.py %SRC%
+echo 文件已成功复制到 %SRC%
 robocopy %SRC%/ %OUTPUT% *.dll
 robocopy %SRC%/ %OUTPUT%%x64% *.dll
 robocopy %SRC%/ %OUTPUT% *.py
