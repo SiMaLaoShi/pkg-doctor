@@ -1,3 +1,15 @@
+## 2024年6月25日修改
+
+* 重构pkg_doctor，
+* 更新AssetStudio为AssetStudio_Tuanjie，
+* 使用SubModule来控制AssetStudio_Tuanjie
+
+可以使用编译的AssetStudio直接反射调用是最好的的更新，
+
+这里把pkg_doctor和AssetStudio_Tuanjie分离编译，解决AssetStudio_Tuanjie每次更新都需要重新拉取修改的问题，使用SubModule的方式可以直接更新Module就行了，正常情况SubModule更新后就可以立即发布了
+
+
+
 ## 修改
 
 - 升级AssetStudio为最新
