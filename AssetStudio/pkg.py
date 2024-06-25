@@ -176,8 +176,8 @@ def process_pkg_csv(filename):
     markdown.write('\n')
 
     markdown.write('# 重复入包 Top 榜\n')
-    markdown.write('Name|Type|Wasted|Format|Preview|Container|OriginalFile\n')
-    markdown.write('----|----|------|------|-------|---------|------------\n')
+    markdown.write('Name|Type|Wasted|Format|Container\n')
+    markdown.write('----|----|------|------|---------\n')
     count = 0
     for k in OrderedDict(sorted(assets.items(), key=lambda item: item[1]['wasted'], reverse=True)):
         v = assets[k]
@@ -210,13 +210,12 @@ def process_pkg_csv(filename):
         format = row['Format']
         if 'Crunched' in format:
             format = format.replace('Crunched', '')
-        markdown.write('%s|%s|%s|%s|%s|%s|%s\n' % (
+        markdown.write('%s|%s|%s|%s|%s\n' % (
             '<br>'.join(names),
             '%s<br>%s%s' % (type, pretty_number(row['Size']), '*%d'% item_count if item_count > 1 else ''),
             '**%s**' % pretty_number(v['wasted']),
             '%s<br>%s' % (row['Dimension'], format),
-            preview,
-            '<br>'.join(containers),
+
             '<br>'.join(originalFiles),
         ))
         count += 1
@@ -225,8 +224,8 @@ def process_pkg_csv(filename):
     markdown.write('\n')
 
     markdown.write('# 未压缩贴图 Top 榜\n')
-    markdown.write('Name|Size|Dimension|Format|Preview|Container\n')
-    markdown.write('----|----|---------|------|-------|---------\n')
+    markdown.write('Name|Size|Dimension|Format\n')
+    markdown.write('----|----|---------|------\n')
     count = 0
     for k in OrderedDict(sorted(assets.items(), key=lambda item: item[1]['items'][0]['Size'], reverse=True)):        
         v = assets[k]    
@@ -249,13 +248,13 @@ def process_pkg_csv(filename):
             preview = '![](%s border="2")' % asset_filename
         else:
             preview = ''   
-        markdown.write('%s|%s|%s|%s|%s|%s\n' % (
+        markdown.write('%s|%s|%s|%s\n' % (
             row['Name'],
             '%s%s' % (pretty_number(row['Size']), '*%d'% item_count if item_count > 1 else ''),
             row['Dimension'],
             row['Format'],
-            preview,
-            row['Container'],
+            # preview,
+            # row['Container'],
         ))
 
         count += 1
@@ -264,8 +263,8 @@ def process_pkg_csv(filename):
     markdown.write('\n')
 
     markdown.write('# 大尺寸贴图 Top 榜\n')
-    markdown.write('Name|Size|Dimension|Format|Preview|Container\n')
-    markdown.write('----|----|---------|------|-------|---------\n')
+    markdown.write('Name|Size|Dimension|Format\n')
+    markdown.write('----|----|---------|------\n')
     count = 0
     for k in OrderedDict(sorted(assets.items(), key=lambda item: item[1]['items'][0]['Size'], reverse=True)):
         v = assets[k]    
@@ -285,13 +284,13 @@ def process_pkg_csv(filename):
             preview = '![](%s border="2")' % asset_filename
         else:
             preview = ''   
-        markdown.write('%s|%s|%s|%s|%s|%s\n' % (
+        markdown.write('%s|%s|%s|%s\n' % (
             row['Name'],
             pretty_number(row['Size']),
             row['Dimension'],
             row['Format'],
-            preview,
-            row['Container'],
+            # preview,
+            # row['Container'],
         ))
         count += 1
         if count > MAX_ROWs_PRINTED:

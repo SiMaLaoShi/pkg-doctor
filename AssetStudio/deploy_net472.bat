@@ -6,7 +6,7 @@ rem set TIMESTAMP=%mydate%
 set OUTPUT=pkg-doctor-net472-%fname%
 rmdir /S /Q %OUTPUT%
 mkdir %OUTPUT%
-set SRC=AssetStudioGUI/bin/Release/net472
+set SRC=pkg_doctor\PkgDoctorMain\bin\Release
 
 robocopy %SRC%/ %OUTPUT% *.dll
 robocopy %SRC%/ %OUTPUT%%x64% *.dll
