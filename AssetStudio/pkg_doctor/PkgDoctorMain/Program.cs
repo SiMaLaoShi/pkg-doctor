@@ -17,6 +17,7 @@ namespace PkgDoctorMain
         public static void Main(string[] args)
         {
             var assetsManager = new AssetsManager();
+            args = new[] {"F:\\Downloads\\Misc\\trunk_1.1.3585(13585)(07091207)_R_B_zh-cn.apk"};
             var paths = args;
             if (paths.Length == 1)
             {
@@ -33,7 +34,16 @@ namespace PkgDoctorMain
                         Directory.Delete(path_apk, true);
 
                     Console.WriteLine("Unzip {0}", path_0);
-                    System.IO.Compression.ZipFile.ExtractToDirectory(path_0, path_apk);
+
+                    try
+                    {
+                        //这个zip库有问题，高版本的apk解压不了
+                        System.IO.Compression.ZipFile.ExtractToDirectory(path_0, path_apk);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
                     path_0 = path_apk;
                 }
 
