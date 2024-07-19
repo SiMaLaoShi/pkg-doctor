@@ -17,7 +17,6 @@ namespace PkgDoctorMain
         public static void Main(string[] args)
         {
             var assetsManager = new AssetsManager();
-            args = new[] {"F:\\Downloads\\Misc\\trunk_1.1.3585(13585)(07091207)_R_B_zh-cn.apk"};
             var paths = args;
             if (paths.Length == 1)
             {
