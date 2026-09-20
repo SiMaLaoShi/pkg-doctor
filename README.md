@@ -22,7 +22,7 @@ AssetStudioGUI.exe --cli --analyze /path/to/game.apk
 
 # pkg-doctor
 
-包体医生，Unity 及 Unreal 游戏包体优化工具。
+包体医生，Unity 游戏包体优化工具。
 
 # 分析 Unity 游戏包体
 
@@ -46,10 +46,3 @@ https://github.com/taptap/pkg-doctor/releases
 ## 分析 Unity 游戏资源文件夹
 
 > AssetStudioGUI.exe --cli --analyze /path/to/game/data/
-
-# 分析 Unreal 游戏包体 [开发 ing]
-
-## 生成 pkg-doctor.exe
-- 进入 *Engine\Source\Programs* 目录
-- mklink /D UnrealPakViewer /path/to/pkg-doctor/UnrealPakViewer
-- 重新生成解决方案编译
